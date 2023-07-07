@@ -53,4 +53,4 @@ app.post('/getAlbum', catchASync(async (req, res) => {
     const currentAlbum = await Album.findOne({ id: id });
     res.json(currentAlbum)
 
-}))
+}));
