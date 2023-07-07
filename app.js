@@ -7,7 +7,10 @@ const PORT = process.env.PORT || 3001
 const dotenv = require('dotenv');
 const cors = require('cors');
 const mongoose = require('mongoose')
-
+const corsOptions = {
+    credentials: true,
+    optionSuccessStatus: 200
+}
 
 mongoose.connect(process.env.MONGODB_URI)
     .then(() => {
@@ -18,7 +21,7 @@ mongoose.connect(process.env.MONGODB_URI)
         console.log("oh no, Mongo error", err)
     })
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.listen(PORT, () => {
@@ -42,5 +45,3 @@ app.post('/latestAlbums', catchAsync(async (req, res) => {
     res.json(sortedAlbums)
 
 }))
-
-module.exports = app
