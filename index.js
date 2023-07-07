@@ -50,5 +50,3 @@ app.post('/latestAlbums', catchAsync(async (req, res) => {
     res.json(sortedAlbums)
 
 }))
-
-module.exports = app
