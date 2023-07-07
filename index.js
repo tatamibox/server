@@ -23,11 +23,7 @@ mongoose.connect(process.env.MONGODB_URI)
         console.log("oh no, Mongo error", err)
     })
 
-app.use(function (request, response, next) {
-    response.header("Access-Control-Allow-Origin", "*");
-    response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
+
 
 app.listen(PORT, () => {
     console.log('Server listening on port 3001')
